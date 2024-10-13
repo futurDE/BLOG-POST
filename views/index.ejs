@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/source/func.js"></script>
+</head>
+<body>
+    <form action="/submit" method="POST">
+        <textarea class="textarea" name="UserInput"></textarea>
+        <input type="submit" value="submit" class="submit">
+    </form>
+    <% if (locals.infoArray) { %>
+        <% for (let i = 0; i < infoArray.length; i++) { %>
+            <div>
+                <%= infoArray[i] %>
+                <% if (infoArray[i] != "" && infoArray[i]) { %>
+                    <form action="/delete" method="POST">
+                        <input type="submit" value="delete" name="<%= i %>">
+                    </form>
+                <% } %>
+            </div>
+        <% } %>
+    <% } %>
+</body>
+</html>
+
+<!-- submit button and func.js && how to add a new div -->
